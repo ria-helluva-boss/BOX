@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color:azure;
+    padding: 1.25rem;
+}
+.container{
+    width: 100%;
+    min-height: 100%;
+}
+.products{
+    margin-bottom: 1.875rem;
+}
+.cart__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fefefe; /*кто знал что из прикольных букв такие норм цвета выйдут */
+    border: 1px solid #dadada;
+    border-radius: .5rem;
+    margin-bottom: 1.25rem;
+    padding: .9375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+
+.cart__item--image, img {
+    width: 11.25rem;
+    height: 12.5rem;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+#cupon__button {
+    background-color: #562525; 
+    color: white; 
+    border: none; 
+    border-radius: 2px;
+    padding: .9375rem 2.1875rem; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+#cupon__button:hover {
+    background-color:white;
+    color: #562525;
+    border: 1px solid #562525;
+}
+
+.cart__item--details {
+    flex-grow: 1;
+    padding-left: 1.25rem;
+    color: #562525;
+}
+
+.product--name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: .9375rem;
+}
+
+.product__attributes {
+    display: flex;
+    flex-direction: column;
+    gap: .4375rem;
+}
+
+.product--color,
+.product--size,
+.product--quantity {
+    font-size: .875rem;
+    font-weight: 600;
+}
+
+.cart__item--price, .price {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color:#562525;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shop Cart</h1>
+        <div class="products">
+
+            <div class="cart__item">
+                <div class="cart__item--image">
+                <img src="/imgone.jpg" alt="t-shirt">
+            </div>
+            <div class="cart__item--details">
+                <div class="product--name">First item for you don't have to walk naked</div>
+                <div class="product__attributes">
+                    <div class="product--color">Цвет: Multicolored</div>
+                    <div class="product--size">Размер: L</div>
+                    <div class="product--quantity">Количество: 1</div>
+                </div>
+            </div>
+            <div class="cart__item--price">
+                <div class="price">Цена: 9999 ₽</div>
+            </div>
+        </div>
+
+            <div class="cart__item">
+                <div class="cart__item--image">
+                    <img src="/imgtwo.jpg" alt="t-shirt">
+                </div>
+                <div class="cart__item--details">
+                    <div class="product--name">Second item for you don't have to walk naked</div>
+                    <div class="product__attributes">
+                        <div class="product--color">Цвет: Blue & White</div>
+                        <div class="product--size">Размер: L</div>
+                        <div class="product--quantity">Количество: 1</div>
+                    </div>
+                </div>
+                <div class="cart__item--price">
+                    <div class="price">Цена: 11290 ₽</div>
+                </div>
+            </div>
+
+            <div class="cart__item">
+                <div class="cart__item--image">
+                    <img src="/imgthree.jpg" alt="t-shirt">
+                </div>
+                <div class="cart__item--details">
+                    <div class="product--name">Third item for you don't have to walk naked</div>
+                    <div class="product__attributes">
+                        <div class="product--color">Цвет: White</div>
+                        <div class="product--size">Размер: L</div>
+                        <div class="product--quantity">Количество: 1</div>
+                    </div>
+                </div>
+                <div class="cart__item--price">
+                    <div class="price">Цена: 2550 ₽</div>
+                </div>
+            </div>
+
+            <div class="cart__item">
+                <div class="cart__item--image">
+                    <img src="/imgfour.jpg" alt="t-shirt">
+                </div>
+                <div class="cart__item--details">
+                    <div class="product--name">Fourth item for you don't have to walk naked</div>
+                    <div class="product__attributes">
+                        <div class="product--color">Цвет: White & Blue</div>
+                        <div class="product--size">Размер: 42</div>
+                        <div class="product--quantity">Количество: 1</div>
+                    </div>
+                </div>
+                <div class="cart__item--price">
+                    <div class="price">Цена: 6390 ₽</div>
+                </div>
+            </div>
+
+        </div>
+            <div class="full_price">
+                <button id="cupon__button">
+                Use a 20% coupon
+                </button>
+                <div class="full">
+                    Итого:
+                </div>
+            </div>
+    </div>
+</body>
+</html>
