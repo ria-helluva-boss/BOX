@@ -66,7 +66,7 @@ body {
     color: #562525;
 }
 
-.product--name {
+.product--name, .full {
     font-size: 1.125rem;
     font-weight: 700;
     margin-bottom: .9375rem;
@@ -85,10 +85,23 @@ body {
     font-weight: 600;
 }
 
-.cart__item--price, .price {
+.cart__item--price, .price,#fullPriceHeare {
     font-size: 1.125rem;
     font-weight: 700;
     color:#562525;
+}
+#fullPriceHeare{
+    font-size: 1.5rem;
+}
+
+.full_price{
+    display: flex;
+    justify-content: space-between;
+
+}
+.right_side{
+    display: flex;
+    flex-direction: column;
 }
     </style>
 </head>
@@ -99,7 +112,7 @@ body {
 
             <div class="cart__item">
                 <div class="cart__item--image">
-                <img src="/imgone.jpg" alt="t-shirt">
+                <img src="imgone.jpg" alt="t-shirt">
             </div>
             <div class="cart__item--details">
                 <div class="product--name">First item for you don't have to walk naked</div>
@@ -110,13 +123,14 @@ body {
                 </div>
             </div>
             <div class="cart__item--price">
-                <div class="price">Цена: 9999 ₽</div>
+                <div class="price">Цена:</div>
+                <div id="itemFirst">9999 </div>
             </div>
         </div>
 
             <div class="cart__item">
                 <div class="cart__item--image">
-                    <img src="/imgtwo.jpg" alt="t-shirt">
+                    <img src="imgtwo.jpg" alt="t-shirt">
                 </div>
                 <div class="cart__item--details">
                     <div class="product--name">Second item for you don't have to walk naked</div>
@@ -127,13 +141,14 @@ body {
                     </div>
                 </div>
                 <div class="cart__item--price">
-                    <div class="price">Цена: 11290 ₽</div>
+                    <div class="price" >Цена:</div>
+                    <div id="itemSecond"> 11290 </div>
                 </div>
             </div>
 
             <div class="cart__item">
                 <div class="cart__item--image">
-                    <img src="/imgthree.jpg" alt="t-shirt">
+                    <img src="imgthree.jpg" alt="t-shirt">
                 </div>
                 <div class="cart__item--details">
                     <div class="product--name">Third item for you don't have to walk naked</div>
@@ -144,13 +159,14 @@ body {
                     </div>
                 </div>
                 <div class="cart__item--price">
-                    <div class="price">Цена: 2550 ₽</div>
+                    <div class="price">Цена:</div>
+                    <div  id="itemThird">  2550 </div>
                 </div>
             </div>
 
             <div class="cart__item">
                 <div class="cart__item--image">
-                    <img src="/imgfour.jpg" alt="t-shirt">
+                    <img src="imgfour.jpg" alt="t-shirt">
                 </div>
                 <div class="cart__item--details">
                     <div class="product--name">Fourth item for you don't have to walk naked</div>
@@ -161,7 +177,8 @@ body {
                     </div>
                 </div>
                 <div class="cart__item--price">
-                    <div class="price">Цена: 6390 ₽</div>
+                    <div class="price" >Цена: </div>
+                    <div  id="itemFourth"> 6390 </div>
                 </div>
             </div>
 
@@ -170,10 +187,56 @@ body {
                 <button id="cupon__button">
                 Use a 20% coupon
                 </button>
-                <div class="full">
-                    Итого:
+                    <div class="right_side">
+                    <div class="full">
+                        Итого:
+                    </div>
+                    <div id="fullPriceHeare">
+                        30229 
+                    </div>
                 </div>
             </div>
     </div>
+
+
+    <script>
+        const price1 = document.getElementById('itemFirst');
+        const price2 = document.getElementById('itemSecond');
+        const price3 = document.getElementById('itemThird');
+        const price4 = document.getElementById('itemFourth');
+        const totalPrice = document.getElementById('fullPriceHeare');
+        const cuponButton = document.getElementById('cupon__button');
+
+        let helpMe = false;
+        function applyDiscount () {
+        if (!helpMe) {
+            const price1Value = +price1.textContent;
+            const price2Value = +price2.textContent;
+            const price3Value = +price3.textContent;
+            const price4Value = +price4.textContent;
+
+            const discount = 0.2;
+            const discountedPrice1 = price1Value * (1 - discount);
+            const discountedPrice2 = price2Value * (1 - discount);
+            const discountedPrice3 = price3Value * (1 - discount);
+            const discountedPrice4 = price4Value * (1 - discount);
+
+            price1.textContent = discountedPrice1.toFixed(2) + ' ₽';
+            price2.textContent = discountedPrice2.toFixed(2) + ' ₽';
+            price3.textContent = discountedPrice3.toFixed(2) + ' ₽';
+            price4.textContent = discountedPrice4.toFixed(2) + ' ₽';
+
+            const currentTotalPrice = price1Value + price2Value + price3Value + price4Value;
+            
+            const discountedTotalPrice = currentTotalPrice * (1 - discount);
+
+            totalPrice.textContent = `${discountedTotalPrice.toFixed(2)} ₽ `
+        
+        helpMe = true;
+        }
+        }
+
+        cuponButton.addEventListener('click', applyDiscount);
+</script>
 </body>
 </html>
